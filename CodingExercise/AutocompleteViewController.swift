@@ -59,6 +59,7 @@ class AutocompleteViewController: UIViewController {
         searchResultsTableView.dataSource = self
         searchResultsTableView.delegate = self
 
+        viewModel.delegate = self
         setupSubviews()
     }
 
@@ -91,11 +92,13 @@ class AutocompleteViewController: UIViewController {
 
 extension AutocompleteViewController: UITextFieldDelegate {
     @objc func textFieldDidChange(textField: UITextField) {
-        viewModel.fetchUserNames(searchTextField.text) { [weak self] in
-            DispatchQueue.main.async {
-                self?.searchResultsTableView.reloadData()
-            }
-        }
+        viewModel.updateSearchText(text: searchTextField.text)
+    }
+}
+
+extension AutocompleteViewController: AutocompleteViewModelDelegate {
+    func usersDataUpdated() {
+        searchResultsTableView.reloadData()
     }
 }
 

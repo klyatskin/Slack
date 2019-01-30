@@ -7,12 +7,25 @@
 
 import Foundation
 
+protocol AutocompleteViewModelDelegate {
+    func usersDataUpdated()
+}
+
 class AutocompleteViewModel {
     private let resultsDataProvider: UserSearchResultDataProviderInterface
     public var usernames: [String] = []
+    public var delegate: AutocompleteViewModelDelegate?
 
     init(dataProvider: UserSearchResultDataProviderInterface) {
         self.resultsDataProvider = dataProvider
+    }
+
+    func updateSearchText(text: String?) {
+        fetchUserNames(text) { [weak self] in
+            DispatchQueue.main.async {
+                self?.delegate?.usersDataUpdated()
+            }
+        }
     }
 
     func fetchUserNames(_ searchTerm: String?, completionHandler: @escaping () -> Void) {
