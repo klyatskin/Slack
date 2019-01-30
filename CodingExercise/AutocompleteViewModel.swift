@@ -7,14 +7,14 @@
 
 import Foundation
 
-protocol AutocompleteViewModelDelegate {
+protocol AutocompleteViewModelDelegate: class {
     func usersDataUpdated()
 }
 
 class AutocompleteViewModel {
     private let resultsDataProvider: UserSearchResultDataProviderInterface
     public var usernames: [String] = []
-    public var delegate: AutocompleteViewModelDelegate?
+    public weak var delegate: AutocompleteViewModelDelegate?
 
     init(dataProvider: UserSearchResultDataProviderInterface) {
         self.resultsDataProvider = dataProvider
