@@ -30,34 +30,52 @@ class SlackApi: SlackAPIInterface {
     /**
      Fetch Slack users based on a given search term.
 
-     Parameter searchTerm: A string to match users against.
-     Parameter completionHandler: The closure invoked when fetching is completed and the user search results are given.
-    */
+     - parameter searchTerm: A string to match users against.
+     - parameter completionHandler: The closure invoked when fetching is completed and the user search results are given.
+     */
     func fetchUsers(_ searchTerm: String, completionHandler: @escaping ([UserSearchResult]) -> Void) {
         dataTask?.cancel()
 
-        if var urlComponents = URLComponents(string: baseURLString) {
-            let queryItemQuery = URLQueryItem(name: "query", value: searchTerm)
-            urlComponents.queryItems = [queryItemQuery]
+        guard var urlComponents = URLComponents(string: baseURLString) else { return }
 
-            guard let url = urlComponents.url else { return }
-            dataTask = defaultSession.dataTask(with: url) { data, response, error in
-                defer { self.dataTask = nil }
+        let queryItemQuery = URLQueryItem(name: "query", value: searchTerm)
+        urlComponents.queryItems = [queryItemQuery]
 
-                if let error = error {
-                    NSLog("Request failed with error: \(error.localizedDescription)")
-                    completionHandler([])
-                } else if let data = data, let response = response as? HTTPURLResponse,
-                response.statusCode == 200 {
-                    print(String(data: data, encoding: .utf8)!)
-                    let decoder = JSONDecoder()
-                    do {
-                        let result = try decoder.decode(SearchResponse.self, from: data)
-                        completionHandler(result.users)
-                    } catch { NSLog("Decoding failed with error: \(error.localizedDescription)") }
-                }
+        guard let url = urlComponents.url else { return }
+        dataTask = defaultSession.dataTask(with: url) { data, response, error in
+            // These will be the results we return with our completion handler
+            var resultsToReturn = [UserSearchResult]()
+
+            // Ensure that our data task is cleaned up and our completion handler is called
+            defer {
+                self.dataTask = nil
+                completionHandler(resultsToReturn)
             }
-            dataTask?.resume()
+
+            if let error = error {
+                NSLog("[API] Request failed with error: \(error.localizedDescription)")
+                return
+            }
+
+            guard let data = data, let response = response as? HTTPURLResponse else {
+                NSLog("[API] equest returned an invalid response")
+                return
+            }
+
+            guard response.statusCode == 200 else {
+                NSLog("[API] Request returned an unsupported status code: \(response.statusCode)")
+                return
+            }
+
+            let decoder = JSONDecoder()
+            do {
+                let result = try decoder.decode(SearchResponse.self, from: data)
+                resultsToReturn = result.users
+            } catch {
+                NSLog("[API] Decoding failed with error: \(error)")
+            }
         }
+
+        dataTask?.resume()
     }
 }
