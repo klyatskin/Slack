@@ -11,9 +11,27 @@ protocol AutocompleteViewModelDelegate: class {
     func usersDataUpdated()
 }
 
-class AutocompleteViewModel {
+// MARK: - Interfaces
+protocol AutocompleteViewModelInterface {
+    /*
+     * Fetches users from that match a given a search term
+     */
+    func fetchUserNames(_ searchTerm: String?, completionHandler: @escaping () -> Void)
+
+    /*
+     * Updates usernames according to given update string.
+     */
+    func updateSearchText(text: String?)
+
+    /*
+    * Returns the list of usernames according to the last update.
+    */
+    func getUsernames() -> [String]
+}
+
+class AutocompleteViewModel: AutocompleteViewModelInterface {
     private let resultsDataProvider: UserSearchResultDataProviderInterface
-    public var usernames: [String] = []
+    private var usernames: [String] = []
     public weak var delegate: AutocompleteViewModelDelegate?
 
     init(dataProvider: UserSearchResultDataProviderInterface) {
@@ -26,6 +44,10 @@ class AutocompleteViewModel {
                 self?.delegate?.usersDataUpdated()
             }
         }
+    }
+
+    func getUsernames() -> [String] {
+        return usernames
     }
 
     func fetchUserNames(_ searchTerm: String?, completionHandler: @escaping () -> Void) {

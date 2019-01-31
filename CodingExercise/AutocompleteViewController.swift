@@ -17,7 +17,7 @@ struct Constants {
 }
 
 class AutocompleteViewController: UIViewController {
-    var viewModel: AutocompleteViewModel
+    private var viewModel: AutocompleteViewModel
 
     init(viewModel: AutocompleteViewModel) {
         self.viewModel = viewModel
@@ -63,7 +63,7 @@ class AutocompleteViewController: UIViewController {
         setupSubviews()
     }
 
-    func setupSubviews() {
+    private func setupSubviews() {
         contentView.addSubview(searchTextField)
         contentView.addSubview(searchResultsTableView)
         view.addSubview(contentView)
@@ -71,7 +71,7 @@ class AutocompleteViewController: UIViewController {
         setupConstraints()
     }
 
-    func setupConstraints() {
+    private func setupConstraints() {
         NSLayoutConstraint.activate([
             contentView.leftAnchor.constraint(equalTo: view.leftAnchor),
             contentView.rightAnchor.constraint(equalTo: view.rightAnchor),
@@ -105,11 +105,12 @@ extension AutocompleteViewController: AutocompleteViewModelDelegate {
 extension AutocompleteViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: Constants.cellIdentifier)
-        cell.textLabel?.text = viewModel.usernames[indexPath.row]
+
+        cell.textLabel?.text = viewModel.getUsernames()[indexPath.row]
         return cell
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.usernames.count
+        return viewModel.getUsernames().count
     }
 }
