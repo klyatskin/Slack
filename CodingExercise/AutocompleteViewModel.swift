@@ -24,9 +24,19 @@ protocol AutocompleteViewModelInterface {
     func updateSearchText(text: String?)
 
     /*
-    * Returns the list of usernames according to the last update.
+    * Returns a username at the given position.
     */
-    func getUsernames() -> [String]
+    func username(at index: Int) -> String
+
+    /*
+     * Returns the count of the current usernames array.
+     */
+    func usernamesCount() -> Int
+
+    /*
+     Delegate that allows to send data updates through callback.
+ */
+    var delegate: AutocompleteViewModelDelegate? { get set }
 }
 
 class AutocompleteViewModel: AutocompleteViewModelInterface {
@@ -46,8 +56,12 @@ class AutocompleteViewModel: AutocompleteViewModelInterface {
         }
     }
 
-    func getUsernames() -> [String] {
-        return usernames
+    func usernamesCount() -> Int {
+        return usernames.count
+    }
+
+    func username(at index: Int) -> String {
+        return usernames[index]
     }
 
     func fetchUserNames(_ searchTerm: String?, completionHandler: @escaping () -> Void) {

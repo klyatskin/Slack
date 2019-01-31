@@ -17,9 +17,9 @@ struct Constants {
 }
 
 class AutocompleteViewController: UIViewController {
-    private var viewModel: AutocompleteViewModel
+    private var viewModel: AutocompleteViewModelInterface
 
-    init(viewModel: AutocompleteViewModel) {
+    init(viewModel: AutocompleteViewModelInterface) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -106,11 +106,11 @@ extension AutocompleteViewController: UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: Constants.cellIdentifier)
 
-        cell.textLabel?.text = viewModel.getUsernames()[indexPath.row]
+        cell.textLabel?.text = viewModel.username(at: indexPath.row)
         return cell
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.getUsernames().count
+        return viewModel.usernamesCount()
     }
 }
