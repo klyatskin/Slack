@@ -16,7 +16,7 @@ protocol AutocompleteViewModelInterface {
     /*
      * Fetches users from that match a given a search term
      */
-    func fetchUserNames(_ searchTerm: String?, completionHandler: @escaping () -> Void)
+    func fetchUserNames(_ searchTerm: String?, completionHandler: @escaping ([String]) -> Void)
 
     /*
      * Updates usernames according to given update string.
@@ -49,8 +49,9 @@ class AutocompleteViewModel: AutocompleteViewModelInterface {
     }
 
     func updateSearchText(text: String?) {
-        fetchUserNames(text) { [weak self] in
+        self.fetchUserNames(text) { [weak self] usernames in
             DispatchQueue.main.async {
+                self?.usernames = usernames
                 self?.delegate?.usersDataUpdated()
             }
         }
@@ -64,16 +65,14 @@ class AutocompleteViewModel: AutocompleteViewModelInterface {
         return usernames[index]
     }
 
-    func fetchUserNames(_ searchTerm: String?, completionHandler: @escaping () -> Void) {
+    func fetchUserNames(_ searchTerm: String?, completionHandler: @escaping ([String]) -> Void) {
         guard let term = searchTerm, !term.isEmpty else {
-            usernames.removeAll()
-            completionHandler()
+            completionHandler([])
             return
         }
-        
-        self.resultsDataProvider.fetchUsers(term) { [weak self] users in
-            self?.usernames = users.map { $0.username }
-            completionHandler()
+
+        self.resultsDataProvider.fetchUsers(term) { users in
+            completionHandler(users.map { $0.username })
         }
     }
 }
