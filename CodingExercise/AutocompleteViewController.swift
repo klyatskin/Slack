@@ -31,6 +31,7 @@ class AutocompleteViewController: UIViewController {
     private let searchTextField: UITextField = {
         let textField = UITextField(frame: .zero)
         textField.placeholder = Constants.textFieldPlaceholder
+        textField.accessibilityLabel = Constants.textFieldPlaceholder
         textField.borderStyle = .roundedRect
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
@@ -105,8 +106,10 @@ extension AutocompleteViewController: AutocompleteViewModelDelegate {
 extension AutocompleteViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: Constants.cellIdentifier)
+        let username = viewModel.username(at: indexPath.row)
 
-        cell.textLabel?.text = viewModel.username(at: indexPath.row)
+        cell.textLabel?.text = username
+        cell.accessibilityLabel = username
         return cell
     }
 
