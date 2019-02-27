@@ -14,7 +14,6 @@
 		6A29FD2720E6EC1F004885EC /* UserSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A29FD2620E6EC1F004885EC /* UserSearchResult.swift */; };
 		6A29FD2920E6EC2F004885EC /* SlackAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A29FD2820E6EC2F004885EC /* SlackAPIService.swift */; };
 		6A29FD2D20E6EC79004885EC /* UserSearchResultDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A29FD2C20E6EC79004885EC /* UserSearchResultDataProvider.swift */; };
-		6AC4866C21F29FDC0068D741 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AC4866B21F29FDC0068D741 /* Default-568h@2x.png */; };
 		6AC4866E21F2AB700068D741 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AC4866D21F2AB700068D741 /* LaunchScreen.storyboard */; };
 		6AF5D92820EC255B008186C3 /* AutocompleteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF5D92720EC255B008186C3 /* AutocompleteViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -41,7 +40,6 @@
 		6A29FD2620E6EC1F004885EC /* UserSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchResult.swift; sourceTree = "<group>"; };
 		6A29FD2820E6EC2F004885EC /* SlackAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlackAPIService.swift; sourceTree = "<group>"; };
 		6A29FD2C20E6EC79004885EC /* UserSearchResultDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchResultDataProvider.swift; sourceTree = "<group>"; };
-		6AC4866B21F29FDC0068D741 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		6AC4866D21F2AB700068D741 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6AF5D92720EC255B008186C3 /* AutocompleteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutocompleteViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -67,7 +65,6 @@
 		6A29FCF820E6EB0F004885EC = {
 			isa = PBXGroup;
 			children = (
-				6AC4866B21F29FDC0068D741 /* Default-568h@2x.png */,
 				6A29FD0320E6EB0F004885EC /* CodingExercise */,
 				6A29FD1820E6EB10004885EC /* CodingExerciseTests */,
 				6A29FD0220E6EB0F004885EC /* Products */,
@@ -203,7 +200,6 @@
 			files = (
 				6AC4866E21F2AB700068D741 /* LaunchScreen.storyboard in Resources */,
 				6A29FD0C20E6EB0F004885EC /* Assets.xcassets in Resources */,
-				6AC4866C21F29FDC0068D741 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,7 +360,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-3";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6UF7FN999R;
 				INFOPLIST_FILE = CodingExercise/Info.plist;
@@ -380,7 +376,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-3";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6UF7FN999R;
 				INFOPLIST_FILE = CodingExercise/Info.plist;
