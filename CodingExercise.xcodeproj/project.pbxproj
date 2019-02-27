@@ -15,6 +15,7 @@
 		6A29FD2920E6EC2F004885EC /* SlackAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A29FD2820E6EC2F004885EC /* SlackAPIService.swift */; };
 		6A29FD2D20E6EC79004885EC /* UserSearchResultDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A29FD2C20E6EC79004885EC /* UserSearchResultDataProvider.swift */; };
 		6AC4866E21F2AB700068D741 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AC4866D21F2AB700068D741 /* LaunchScreen.storyboard */; };
+		6AE88E31222758D70032677C /* blacklist.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6AE88E30222758D70032677C /* blacklist.txt */; };
 		6AF5D92820EC255B008186C3 /* AutocompleteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF5D92720EC255B008186C3 /* AutocompleteViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		6A29FD2820E6EC2F004885EC /* SlackAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlackAPIService.swift; sourceTree = "<group>"; };
 		6A29FD2C20E6EC79004885EC /* UserSearchResultDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchResultDataProvider.swift; sourceTree = "<group>"; };
 		6AC4866D21F2AB700068D741 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6AE88E30222758D70032677C /* blacklist.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = blacklist.txt; sourceTree = "<group>"; };
 		6AF5D92720EC255B008186C3 /* AutocompleteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutocompleteViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,6 +85,7 @@
 		6A29FD0320E6EB0F004885EC /* CodingExercise */ = {
 			isa = PBXGroup;
 			children = (
+				6AE88E2F222758CA0032677C /* Resources */,
 				6A29FD2520E6EC09004885EC /* SlackAPI */,
 				6A29FD0420E6EB0F004885EC /* AppDelegate.swift */,
 				6A29FD2C20E6EC79004885EC /* UserSearchResultDataProvider.swift */,
@@ -111,6 +114,14 @@
 				6A29FD2820E6EC2F004885EC /* SlackAPIService.swift */,
 			);
 			path = SlackAPI;
+			sourceTree = "<group>";
+		};
+		6AE88E2F222758CA0032677C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6AE88E30222758D70032677C /* blacklist.txt */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6AC4866E21F2AB700068D741 /* LaunchScreen.storyboard in Resources */,
+				6AE88E31222758D70032677C /* blacklist.txt in Resources */,
 				6A29FD0C20E6EB0F004885EC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
