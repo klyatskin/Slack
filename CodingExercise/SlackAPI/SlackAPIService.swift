@@ -58,7 +58,7 @@ class SlackApi: SlackAPIInterface {
             }
 
             guard let data = data, let response = response as? HTTPURLResponse else {
-                NSLog("[API] equest returned an invalid response")
+                NSLog("[API] Request returned an invalid response")
                 return
             }
 
