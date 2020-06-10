@@ -15,7 +15,7 @@
 		6A29FD2920E6EC2F004885EC /* SlackAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A29FD2820E6EC2F004885EC /* SlackAPIService.swift */; };
 		6A29FD2D20E6EC79004885EC /* UserSearchResultDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A29FD2C20E6EC79004885EC /* UserSearchResultDataProvider.swift */; };
 		6AC4866E21F2AB700068D741 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AC4866D21F2AB700068D741 /* LaunchScreen.storyboard */; };
-		6AE88E31222758D70032677C /* blacklist.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6AE88E30222758D70032677C /* blacklist.txt */; };
+		6AE88E31222758D70032677C /* denylist.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6AE88E30222758D70032677C /* denylist.txt */; };
 		6AE88E35222759D90032677C /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6AE88E33222759D80032677C /* Lato-Bold.ttf */; };
 		6AE88E36222759D90032677C /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6AE88E34222759D90032677C /* Lato-Regular.ttf */; };
 		6AF5D92820EC255B008186C3 /* AutocompleteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF5D92720EC255B008186C3 /* AutocompleteViewModel.swift */; };
