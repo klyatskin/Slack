@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0FEDCF0524F89B5200358051 /* denylist.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0FEDCF0424F89B5200358051 /* denylist.txt */; };
 		6A29FD0520E6EB0F004885EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A29FD0420E6EB0F004885EC /* AppDelegate.swift */; };
 		6A29FD0720E6EB0F004885EC /* AutocompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A29FD0620E6EB0F004885EC /* AutocompleteViewController.swift */; };
 		6A29FD0C20E6EB0F004885EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A29FD0B20E6EB0F004885EC /* Assets.xcassets */; };
@@ -15,7 +16,6 @@
 		6A29FD2920E6EC2F004885EC /* SlackAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A29FD2820E6EC2F004885EC /* SlackAPIService.swift */; };
 		6A29FD2D20E6EC79004885EC /* UserSearchResultDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A29FD2C20E6EC79004885EC /* UserSearchResultDataProvider.swift */; };
 		6AC4866E21F2AB700068D741 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AC4866D21F2AB700068D741 /* LaunchScreen.storyboard */; };
-		6AE88E31222758D70032677C /* denylist.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6AE88E30222758D70032677C /* denylist.txt */; };
 		6AE88E35222759D90032677C /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6AE88E33222759D80032677C /* Lato-Bold.ttf */; };
 		6AE88E36222759D90032677C /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6AE88E34222759D90032677C /* Lato-Regular.ttf */; };
 		6AF5D92820EC255B008186C3 /* AutocompleteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF5D92720EC255B008186C3 /* AutocompleteViewModel.swift */; };
@@ -32,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0FEDCF0424F89B5200358051 /* denylist.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = denylist.txt; sourceTree = "<group>"; };
 		6A29FD0120E6EB0F004885EC /* CodingExercise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodingExercise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A29FD0420E6EB0F004885EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6A29FD0620E6EB0F004885EC /* AutocompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutocompleteViewController.swift; sourceTree = "<group>"; };
@@ -44,7 +45,6 @@
 		6A29FD2820E6EC2F004885EC /* SlackAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlackAPIService.swift; sourceTree = "<group>"; };
 		6A29FD2C20E6EC79004885EC /* UserSearchResultDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchResultDataProvider.swift; sourceTree = "<group>"; };
 		6AC4866D21F2AB700068D741 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		6AE88E30222758D70032677C /* blacklist.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = blacklist.txt; sourceTree = "<group>"; };
 		6AE88E33222759D80032677C /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		6AE88E34222759D90032677C /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		6AF5D92720EC255B008186C3 /* AutocompleteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutocompleteViewModel.swift; sourceTree = "<group>"; };
@@ -126,7 +126,7 @@
 				6AE88E32222759BB0032677C /* Fonts */,
 				6AE88E33222759D80032677C /* Lato-Bold.ttf */,
 				6AE88E34222759D90032677C /* Lato-Regular.ttf */,
-				6AE88E30222758D70032677C /* blacklist.txt */,
+				0FEDCF0424F89B5200358051 /* denylist.txt */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -224,10 +224,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6AC4866E21F2AB700068D741 /* LaunchScreen.storyboard in Resources */,
-				6AE88E31222758D70032677C /* blacklist.txt in Resources */,
 				6AE88E36222759D90032677C /* Lato-Regular.ttf in Resources */,
 				6A29FD0C20E6EB0F004885EC /* Assets.xcassets in Resources */,
 				6AE88E35222759D90032677C /* Lato-Bold.ttf in Resources */,
+				0FEDCF0524F89B5200358051 /* denylist.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
