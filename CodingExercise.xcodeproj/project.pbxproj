@@ -28,6 +28,7 @@
 		D1420CBC25FDE4FC00B7C284 /* SearchCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1420C8425FDA57F00B7C284 /* SearchCache.swift */; };
 		D1420CC025FDE8A200B7C284 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1420CBF25FDE8A200B7C284 /* String+Extensions.swift */; };
 		D1420CC425FDEA8300B7C284 /* DenyListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1420CC325FDEA8300B7C284 /* DenyListManager.swift */; };
+		D1B7036525FE078D000454D4 /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = D1B7036425FE078D000454D4 /* readme.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		D1420CB825FDE2A400B7C284 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		D1420CBF25FDE8A200B7C284 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		D1420CC325FDEA8300B7C284 /* DenyListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DenyListManager.swift; sourceTree = "<group>"; };
+		D1B7036425FE078D000454D4 /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 		6A29FD0320E6EB0F004885EC /* CodingExercise */ = {
 			isa = PBXGroup;
 			children = (
+				D1B7036425FE078D000454D4 /* readme.txt */,
 				D1420C9725FDC7F300B7C284 /* Extensions */,
 				D1420C8A25FDC1F400B7C284 /* CustomUI */,
 				6AE88E2F222758CA0032677C /* Resources */,
@@ -268,6 +271,7 @@
 				6AE88E36222759D90032677C /* Lato-Regular.ttf in Resources */,
 				D1420CB525FDD14200B7C284 /* UserCell.xib in Resources */,
 				6A29FD0C20E6EB0F004885EC /* Assets.xcassets in Resources */,
+				D1B7036525FE078D000454D4 /* readme.txt in Resources */,
 				6AE88E35222759D90032677C /* Lato-Bold.ttf in Resources */,
 				0FEDCF0524F89B5200358051 /* denylist.txt in Resources */,
 			);
