@@ -7,6 +7,12 @@
 
 import UIKit
 
+
+/**
+ UIImageView loading a n image asynchronously
+ */
+
+
 class LazyUIImageView: UIImageView {
 
     
@@ -15,13 +21,13 @@ class LazyUIImageView: UIImageView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        image = #imageLiteral(resourceName: "WaitIcon")
+        image = UIImage(named: "WaitIcon")
     }
     
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        image = #imageLiteral(resourceName: "WaitIcon")
+        image = UIImage(named: "WaitIcon")
     }
     
     

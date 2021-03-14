@@ -33,6 +33,9 @@ class CodingExerciseTests: XCTestCase {
         }
     }
     
+    
+// MARK: - tests for Cache and Trie
+
     func testCache() {
         let cache = SearchCache.shared
         let query = String().random(Int.random(in: 1..<10))
@@ -52,4 +55,27 @@ class CodingExerciseTests: XCTestCase {
         XCTAssert(true, "reset failed")
     }
     
+    
+    func testTrie() {
+        let trie  = WordTrie()
+        trie.insert("abc")
+        trie.insert("abcd")
+        trie.insert("ab.df")
+        trie.insert("aef")
+        trie.insert("a123")
+        
+        XCTAssert(trie.hasPrefix(for: "d") == false, "Wrong prefix found")
+        XCTAssert(trie.hasPrefix(for: "de") == false, "Wrong prefix found")
+        XCTAssert(trie.hasPrefix(for: "cd") == false, "Wrong prefix found")
+        XCTAssert(trie.hasPrefix(for: "a") == false, "Wrong prefix found")
+        XCTAssert(trie.hasPrefix(for: "ae") == false, "Wrong prefix found")
+        XCTAssert(trie.hasPrefix(for: "aef") == true, "Wrong prefix found")
+        XCTAssert(trie.hasPrefix(for: "aefg") == true, "Wrong prefix found")
+        XCTAssert(trie.hasPrefix(for: "12") == false, "Wrong prefix found")
+        XCTAssert(trie.hasPrefix(for: "a.df") == false, "Wrong prefix found")
+        XCTAssert(trie.hasPrefix(for: ".ab.df") == false, "Wrong prefix found")
+        XCTAssert(trie.hasPrefix(for: "ab.df.") == true, "Wrong prefix found")
+
+    }
+
 }

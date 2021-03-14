@@ -10,10 +10,8 @@ import Foundation
 
 class DenyListManager {
     
-    
-    
     static let shared = DenyListManager()
-    private var deniedList: [String: Int] = [:]
+    private var deniedList = WordTrie()
     
     
     private var listFilePath: URL {
@@ -29,11 +27,15 @@ class DenyListManager {
 
     
     func loadList() {
-        guard let savedList = NSKeyedUnarchiver.unarchiveObject(withFile: listFilePath.path) as? [String:Int] else {
-                initListFromTxt()
-                return
+        if FileManager.default.fileExists(atPath: listFilePath.path) {
+            guard let savedList = NSKeyedUnarchiver.unarchiveObject(withFile: listFilePath.path) as? WordTrie else {
+                    initListFromTxt()
+                    return
+            }
+            deniedList = savedList
+        } else {
+            initListFromTxt()
         }
-        deniedList = savedList
     }
     
     
@@ -41,14 +43,13 @@ class DenyListManager {
         guard
             let url = Bundle.main.url(forResource: "denylist", withExtension: "txt"),
             let data = try? Data(contentsOf: url) else {
-            deniedList = [:]
                 return
             }
         let string = String(decoding: data, as: UTF8.self).lowercased()
         let keys = string.components(separatedBy: "\n")
         for key in keys {
             if key.count != 0 {
-                deniedList[key] = 1
+                deniedList.insert(key)
             }
         }
     }
@@ -61,22 +62,18 @@ class DenyListManager {
     }
     
     
+    func addToList(string: String) {
+        deniedList.insert(string.lowercased())
+    }
+  
     
     func isDenied(string: String) -> Bool {
-        var prefix = ""
-        for c in string.lowercased() {
-            prefix = prefix + String(c)
-            if (deniedList[prefix] != nil) {
-                print("Denied as \(prefix)")
-                return true
-            }
+        let deny = deniedList.hasPrefix(for:string.lowercased())
+        if (deny) {
+            print("Denied")
         }
-        return false
+        return deny
     }
     
-    
-    func addToList(string: String) {
-        deniedList[string.lowercased()] = 1
-    }
     
 }
