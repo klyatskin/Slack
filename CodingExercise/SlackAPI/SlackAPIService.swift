@@ -42,6 +42,14 @@ class SlackApi: SlackAPIInterface {
         urlComponents.queryItems = [queryItemQuery]
 
         guard let url = urlComponents.url else { return }
+
+        if let data = SearchCache.shared.cached(for: searchTerm) {
+            if let result = try? JSONDecoder().decode(SearchResponse.self, from: data) {
+                completionHandler(result.users)
+                return
+            }
+        }
+
         dataTask = defaultSession.dataTask(with: url) { data, response, error in
             // These will be the results we return with our completion handler
             var resultsToReturn = [UserSearchResult]()
@@ -70,6 +78,7 @@ class SlackApi: SlackAPIInterface {
             let decoder = JSONDecoder()
             do {
                 let result = try decoder.decode(SearchResponse.self, from: data)
+                SearchCache.shared.cache(searchTerm, data: data)
                 resultsToReturn = result.users
             } catch {
                 NSLog("[API] Decoding failed with error: \(error)")

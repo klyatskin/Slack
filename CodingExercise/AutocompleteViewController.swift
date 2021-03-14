@@ -9,8 +9,9 @@ import UIKit
 
 struct Constants {
     static let textFieldPlaceholder = "Search"
-    static let cellIdentifier = "Cell"
-    static let cellRowHeight: CGFloat = 50.0
+    static let cellIdentifier = "UserCell"
+    static let cellRowHeight: CGFloat = 44.0
+    static let cellImageCornerRadius: CGFloat = 4.0
     static let leftSpacing: CGFloat = 20.0
     static let bottomSpacing: CGFloat = 20.0
     static let rightSpacing: CGFloat = -20.0
@@ -42,6 +43,8 @@ class AutocompleteViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = Constants.cellRowHeight
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.register(UINib(nibName: "UserCell", bundle: nil), forCellReuseIdentifier:  Constants.cellIdentifier)
+        tableView.separatorColor =  UIColor(hex: "#DDDDDD")
         return tableView
     }()
 
@@ -104,16 +107,19 @@ extension AutocompleteViewController: AutocompleteViewModelDelegate {
 }
 
 extension AutocompleteViewController: UITableViewDataSource, UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: Constants.cellIdentifier)
-        let username = viewModel.username(at: indexPath.row)
-
-        cell.textLabel?.text = username
-        cell.accessibilityLabel = username
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier, for: indexPath) as! UserCell
+        cell.render(user: viewModel.user(at: indexPath.row))
         return cell
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.usernamesCount()
     }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return Constants.cellRowHeight
+    }
+
 }
