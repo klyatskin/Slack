@@ -2,7 +2,6 @@
 //  SearchCache.swift
 //  CodingExercise
 //
-//  Created by Konstantin Klyatskin on 2021-03-13.
 //  Copyright © 2021 slack. All rights reserved.
 //
 
