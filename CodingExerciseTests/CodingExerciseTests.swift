@@ -35,8 +35,8 @@ class CodingExerciseTests: XCTestCase {
     
     func testCache() {
         let cache = SearchCache.shared
-        let query = "abc"
-        let dataString = "123"
+        let query = String().random(Int.random(in: 1..<10))
+        let dataString = String().random(Int.random(in: 100..<150))
         cache.cache(query, data: dataString.data(using: .utf8)!)
         guard let newData = cache.cached(for: query) else {
             XCTAssert(true, "Not saved")
