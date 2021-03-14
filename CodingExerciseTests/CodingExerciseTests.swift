@@ -33,4 +33,23 @@ class CodingExerciseTests: XCTestCase {
         }
     }
     
+    func testCache() {
+        let cache = SearchCache.shared
+        let query = "abc"
+        let dataString = "123"
+        cache.cache(query, data: dataString.data(using: .utf8)!)
+        guard let newData = cache.cached(for: query) else {
+            XCTAssert(true, "Not saved")
+            return
+        }
+    
+        let newString = String(decoding: newData, as: UTF8.self)
+        XCTAssert(newString == dataString, "Cached data corrupted")
+        cache.reset()
+        guard cache.cached(for: query) != nil else {
+            return
+        }
+        XCTAssert(true, "reset failed")
+    }
+    
 }

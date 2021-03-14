@@ -25,6 +25,7 @@
 		D1420CB425FDD14200B7C284 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1420CB225FDD14200B7C284 /* UserCell.swift */; };
 		D1420CB525FDD14200B7C284 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1420CB325FDD14200B7C284 /* UserCell.xib */; };
 		D1420CB925FDE2A500B7C284 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1420CB825FDE2A400B7C284 /* UIColor+Extensions.swift */; };
+		D1420CBC25FDE4FC00B7C284 /* SearchCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1420C8425FDA57F00B7C284 /* SearchCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -298,6 +299,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1420CBC25FDE4FC00B7C284 /* SearchCache.swift in Sources */,
 				6A29FD1A20E6EB10004885EC /* CodingExerciseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
