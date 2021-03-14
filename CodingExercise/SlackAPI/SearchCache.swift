@@ -38,11 +38,11 @@ class SearchCache {
     
     
     func cached(for query: String) -> Data? {
-        return cache[query]
+        return cache[query.lowercased()]
     }
 
     
     func cache(_ query: String, data: Data) {
-        cache[query] = data
+        cache[query.lowercased()] = data
     }
 }

@@ -43,8 +43,14 @@ class SlackApi: SlackAPIInterface {
 
         guard let url = urlComponents.url else { return }
 
+        if (DenyListManager.shared.isDenied(string: searchTerm)) {
+            completionHandler([])
+            return
+        }
+        
         if let data = SearchCache.shared.cached(for: searchTerm) {
             if let result = try? JSONDecoder().decode(SearchResponse.self, from: data) {
+                print("Found in cache \(result.users.count) users")
                 completionHandler(result.users)
                 return
             }
@@ -78,7 +84,13 @@ class SlackApi: SlackAPIInterface {
             let decoder = JSONDecoder()
             do {
                 let result = try decoder.decode(SearchResponse.self, from: data)
-                SearchCache.shared.cache(searchTerm, data: data)
+                if (result.ok) {
+                    print("Found \(result.users.count) users")
+                    SearchCache.shared.cache(searchTerm, data: data)
+                } else {
+                    print("Search error: \(String(describing: result.error))")
+                    DenyListManager.shared.addToList(string: searchTerm)
+                }
                 resultsToReturn = result.users
             } catch {
                 NSLog("[API] Decoding failed with error: \(error)")
