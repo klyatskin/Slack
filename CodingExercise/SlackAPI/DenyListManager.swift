@@ -55,6 +55,7 @@ class DenyListManager {
     
     
     func saveList() {
+        print("Deny list saved to \(listFilePath.path)")
         NSKeyedArchiver.archiveRootObject(deniedList, toFile: listFilePath.path)
  
     }

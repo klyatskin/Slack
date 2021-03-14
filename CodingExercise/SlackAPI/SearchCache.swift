@@ -33,6 +33,7 @@ class SearchCache {
     }
 
     func swap() {
+        print("Cache saved to \(cacheFilePath.path)")
         NSKeyedArchiver.archiveRootObject(cache, toFile: cacheFilePath.path)
     }
     
